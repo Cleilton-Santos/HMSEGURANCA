@@ -102,7 +102,7 @@ Este projeto está sob a licença MIT.
 
 HM Segurança
 - Telefone: (79) 9999-7408
-- Email: contato@hmseguranca.com.br
+- Email: hmseguranca01se@gmail.com
 - Endereço: Aracaju, SE
 
 ---
