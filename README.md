@@ -107,4 +107,4 @@ HM Segurança
 
 ---
 
-Desenvolvido com ❤️ por Cleilton Santos
+Desenvolvido por Cleilton Santos
