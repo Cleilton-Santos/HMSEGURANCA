@@ -466,3 +466,47 @@ footer a:hover {
         height: 250px;
     }
 }
+
+/* Estilos para a seção de clientes */
+#clientes .w3-card {
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#clientes .w3-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#clientes .w3-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+#clientes .w3-quarter {
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+#clientes .w3-quarter:hover {
+    transform: scale(1.05);
+}
+
+#clientes .w3-jumbo {
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+#clientes .w3-quarter:hover .w3-jumbo {
+    color: #666;
+}
+
+#clientes .w3-xxlarge {
+    font-weight: bold;
+    color: #000;
+}
+
+#clientes .w3-container p {
+    margin-top: 10px;
+    color: #666;
+}
