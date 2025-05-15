@@ -471,16 +471,39 @@ footer a:hover {
 #clientes .w3-card {
     transition: transform 0.3s ease;
     margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    height: 100%;
 }
 
 #clientes .w3-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #fff;
 }
 
-#clientes .w3-card img {
-    height: 200px;
-    object-fit: cover;
+#clientes .w3-container {
+    padding: 24px;
+}
+
+#clientes .w3-container h4 {
+    color: #000;
+    font-size: 1.4em;
+    margin-bottom: 8px;
+}
+
+#clientes .w3-opacity {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 16px;
+}
+
+#clientes .depoimento {
+    color: #444;
+    font-style: italic;
+    line-height: 1.6;
+    font-size: 1.1em;
+    margin-top: 16px;
 }
 
 #clientes .w3-quarter {
