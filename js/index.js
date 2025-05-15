@@ -1,3 +1,73 @@
+// Funções para os modais
+function openModal(modalId, event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    
+    document.getElementById(modalId).style.display = "block";
+    document.body.style.overflow = "hidden";
+    
+    // Inicializar Swiper quando o modal for aberto
+    const swiperConfig = {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    };
+
+    switch(modalId) {
+        case 'modal1':
+            new Swiper('.swiper1', swiperConfig);
+            break;
+        case 'modal2':
+            new Swiper('.swiper2', swiperConfig);
+            break;
+        case 'modal3':
+            new Swiper('.swiper3', swiperConfig);
+            break;
+        case 'modal4':
+            new Swiper('.swiper4', swiperConfig);
+            break;
+        case 'modal5':
+            new Swiper('.swiper5', swiperConfig);
+            break;
+        case 'modal6':
+            new Swiper('.swiper6', swiperConfig);
+            break;
+        case 'modal7':
+            new Swiper('.swiper7', swiperConfig);
+            break;
+        case 'modal8':
+            new Swiper('.swiper8', swiperConfig);
+            break;
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+    
+    // Prevenir o comportamento padrão do botão
+    event.preventDefault();
+    event.stopPropagation();
+}
+
+// Fechar modal ao clicar fora dele
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+}
+
+// Função para o menu mobile
 function toggleFunction() {
     const menu = document.getElementById("navDemo");
     const isOpening = !menu.classList.contains("w3-show");
@@ -49,6 +119,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         }
     });
 });
+
 // Mostrar/esconder o botão baseado no scroll
 window.onscroll = function() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
