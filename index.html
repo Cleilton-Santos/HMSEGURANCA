@@ -82,7 +82,7 @@
 
             <div class="services-grid">
                 <!-- Monitoramento e CFTV -->
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal(this)">
                     <div class="service-image-container">
                         <img src="img/WhatsApp Image 2025-04-29 at 09.37.58 (1).jpeg" alt="CFTV Residencial">
                     </div>
@@ -90,9 +90,12 @@
                         <h4>CFTV Residencial</h4>
                         <p>Monitoramento inteligente para sua residência</p>
                     </div>
+                    <div class="service-details" style="display: none;">
+                        <p>Nossos sistemas de CFTV residencial oferecem monitoramento 24 horas com câmeras de alta definição, gravação em nuvem e acesso remoto via smartphone.</p>
+                    </div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal(this)">
                     <div class="service-image-container">
                         <img src="img/WhatsApp Image 2025-04-29 at 09.38.27 (1).jpeg" alt="Monitoramento 24h">
                     </div>
@@ -100,9 +103,12 @@
                         <h4>Monitoramento 24h</h4>
                         <p>Vigilância constante da sua propriedade</p>
                     </div>
+                    <div class="service-details" style="display: none;">
+                        <p>Central de monitoramento operando 24 horas por dia, com equipe treinada e pronta para agir em caso de qualquer irregularidade.</p>
+                    </div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal(this)">
                     <div class="service-image-container">
                         <img src="img/WhatsApp Image 2025-04-29 at 09.38.26.jpeg" alt="Sistemas de Segurança">
                     </div>
@@ -110,10 +116,13 @@
                         <h4>Sistemas de Segurança</h4>
                         <p>Soluções completas para sua proteção</p>
                     </div>
+                    <div class="service-details" style="display: none;">
+                        <p>Sistemas integrados de segurança com sensores de movimento, sirenes, câmeras e controle de acesso para máxima proteção.</p>
+                    </div>
                 </div>
 
                 <!-- Automação e Controle -->
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal(this)">
                     <div class="service-image-container">
                         <img src="img/WhatsApp Image 2025-04-29 at 09.37.58.jpeg" alt="Alarmes Inteligentes">
                     </div>
@@ -121,9 +130,12 @@
                         <h4>Alarmes Inteligentes</h4>
                         <p>Sistema de alarme com notificações instantâneas</p>
                     </div>
+                    <div class="service-details" style="display: none;">
+                        <p>Alarmes inteligentes com notificações em tempo real para seu celular, integração com assistentes virtuais e controle remoto.</p>
+                    </div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal(this)">
                     <div class="service-image-container">
                         <img src="img/WhatsApp Image 2025-04-29 at 09.37.59.jpeg" alt="Automação Residencial">
                     </div>
@@ -131,9 +143,12 @@
                         <h4>Automação Residencial</h4>
                         <p>Controle total da sua casa pelo celular</p>
                     </div>
+                    <div class="service-details" style="display: none;">
+                        <p>Automatize sua casa com controle de iluminação, temperatura, portas e janelas através do seu smartphone.</p>
+                    </div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal(this)">
                     <div class="service-image-container">
                         <img src="img/WhatsApp Image 2025-04-29 at 09.38.27 (2).jpeg" alt="Controle de Acesso">
                     </div>
@@ -141,10 +156,13 @@
                         <h4>Controle de Acesso</h4>
                         <p>Gerenciamento inteligente de entradas</p>
                     </div>
+                    <div class="service-details" style="display: none;">
+                        <p>Sistemas de controle de acesso com biometria, cartões de proximidade e aplicativo para gerenciamento de permissões.</p>
+                    </div>
                 </div>
 
                 <!-- Soluções Personalizadas -->
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal(this)">
                     <div class="service-image-container">
                         <img src="img/WhatsApp Image 2025-04-29 at 09.38.27.jpeg" alt="Soluções Personalizadas">
                     </div>
@@ -152,9 +170,12 @@
                         <h4>Soluções Personalizadas</h4>
                         <p>Projetos sob medida para sua necessidade</p>
                     </div>
+                    <div class="service-details" style="display: none;">
+                        <p>Desenvolvemos projetos personalizados de segurança considerando as características específicas do seu imóvel e necessidades.</p>
+                    </div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="openServiceModal(this)">
                     <div class="service-image-container">
                         <video controls>
                             <source src="img/WhatsApp Video 2025-04-29 at 09.38.26.mp4" type="video/mp4">
@@ -165,17 +186,33 @@
                         <h4>Conheça Nossa Empresa</h4>
                         <p>Veja como trabalhamos</p>
                     </div>
+                    <div class="service-details" style="display: none;">
+                        <p>Conheça nossa história, valores e compromisso com a segurança dos nossos clientes através deste vídeo institucional.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Modal for full size images on click-->
-        <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-            <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i
-                    class="fa fa-remove"></i></span>
-            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-                <img id="img01" class="w3-image">
-                <p id="caption" class="w3-opacity w3-large"></p>
+        <!-- Modal para os cards de serviço -->
+        <div id="serviceModal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-zoom">
+                <div class="w3-container">
+                    <span class="w3-button w3-display-topright" onclick="document.getElementById('serviceModal').style.display='none'">&times;</span>
+                    <div class="modal-content">
+                        <div class="carousel-container">
+                            <button class="carousel-button prev" onclick="changeSlide(-1)">❮</button>
+                            <div class="carousel-slides">
+                                <img id="modalImage" class="modal-image" src="" alt="Imagem do serviço">
+                            </div>
+                            <button class="carousel-button next" onclick="changeSlide(1)">❯</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                        <div class="modal-text">
+                            <h3 id="modalTitle"></h3>
+                            <p id="modalDescription"></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

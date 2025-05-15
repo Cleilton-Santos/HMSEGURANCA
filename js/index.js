@@ -78,3 +78,87 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Variáveis globais para o carrossel
+let currentSlide = 0;
+let slides = [];
+let dots = [];
+
+// Função para abrir o modal de serviços
+function openServiceModal(card) {
+    const modal = document.getElementById('serviceModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    
+    // Obtém a imagem do card
+    const image = card.querySelector('img');
+    const video = card.querySelector('video');
+    
+    // Obtém o título e a descrição
+    const title = card.querySelector('h4').textContent;
+    const description = card.querySelector('.service-details p').textContent;
+    
+    // Configura o conteúdo do modal
+    if (image) {
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+    } else if (video) {
+        modalImage.style.display = 'none';
+        const videoClone = video.cloneNode(true);
+        modalImage.parentNode.insertBefore(videoClone, modalImage);
+    }
+    
+    modalTitle.textContent = title;
+    modalDescription.textContent = description;
+    
+    // Exibe o modal
+    modal.style.display = 'block';
+    
+    // Fecha o modal ao clicar fora dele
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+}
+
+// Função para mudar o slide
+function changeSlide(direction) {
+    if (slides.length === 0) return;
+    
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+// Função para ir para um slide específico
+function goToSlide(index) {
+    if (slides.length === 0) return;
+    
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    currentSlide = index;
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+// Adiciona navegação por teclado
+document.addEventListener('keydown', function(event) {
+    const modal = document.getElementById('serviceModal');
+    if (modal.style.display === 'block') {
+        if (event.key === 'ArrowLeft') {
+            changeSlide(-1);
+        } else if (event.key === 'ArrowRight') {
+            changeSlide(1);
+        } else if (event.key === 'Escape') {
+            modal.style.display = 'none';
+        }
+    }
+});
