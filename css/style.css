@@ -91,6 +91,7 @@ html {
     font-size: 1.2em;
     color: #666;
     margin-bottom: 32px;
+    padding: 4%;
 }
 
 .profile-card {
@@ -172,6 +173,13 @@ html {
     transition: transform 0.3s ease;
     will-change: transform;
     display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.service-image-container img.loaded {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .service-content {
@@ -401,7 +409,10 @@ footer a:hover {
     flex-direction: column;
     gap: 20px;
 }
-
+.img-modal{
+    cursor: pointer;
+    width: 100%;
+}
 /* Swiper Styles */
 .swiper {
     width: 100%;
