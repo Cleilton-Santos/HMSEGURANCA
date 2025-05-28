@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/style.css">
-        <!-- Adicionar Swiper CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     </head>
     <body>
@@ -98,7 +97,7 @@
                 <!-- Modal 1 -->
                 <div id="modal1" class="modal">
                     <div class="modal-content">
-                        <span class="close-modal" onclick="closeModal('modal1'); return false;">&times;</span>
+                        <span class="close-modal" onclick="closeModal('modal1'); return false;">×</span>
                         <div class="modal-body">
                             <div class="swiper swiper1">
                                 <div class="swiper-wrapper">
@@ -144,7 +143,7 @@
                 <!-- Modal 2 -->
                 <div id="modal2" class="modal">
                     <div class="modal-content">
-                        <span class="close-modal" onclick="closeModal('modal2'); return false;">&times;</span>
+                        <span class="close-modal" onclick="closeModal('modal2'); return false;">×</span>
                         <div class="modal-body">
                             <div class="swiper swiper2">
                                 <div class="swiper-wrapper">
@@ -190,7 +189,7 @@
                 <!-- Modal 3 -->
                 <div id="modal3" class="modal">
                     <div class="modal-content">
-                        <span class="close-modal" onclick="closeModal('modal3'); return false;">&times;</span>
+                        <span class="close-modal" onclick="closeModal('modal3'); return false;">×</span>
                         <div class="modal-body">
                             <div class="swiper swiper3">
                                 <div class="swiper-wrapper">
@@ -236,7 +235,7 @@
                 <!-- Modal 4 -->
                 <div id="modal4" class="modal">
                     <div class="modal-content">
-                        <span class="close-modal" onclick="closeModal('modal4'); return false;">&times;</span>
+                        <span class="close-modal" onclick="closeModal('modal4'); return false;">×</span>
                         <div class="modal-body">
                             <div class="swiper swiper4">
                                 <div class="swiper-wrapper">
@@ -282,7 +281,7 @@
                 <!-- Modal 5 -->
                 <div id="modal5" class="modal">
                     <div class="modal-content">
-                        <span class="close-modal" onclick="closeModal('modal5'); return false;">&times;</span>
+                        <span class="close-modal" onclick="closeModal('modal5'); return false;">×</span>
                         <div class="modal-body">
                             <div class="swiper swiper5">
                                 <div class="swiper-wrapper">
@@ -328,7 +327,7 @@
                 <!-- Modal 6 -->
                 <div id="modal6" class="modal">
                     <div class="modal-content">
-                        <span class="close-modal" onclick="closeModal('modal6'); return false;">&times;</span>
+                        <span class="close-modal" onclick="closeModal('modal6'); return false;">×</span>
                         <div class="modal-body">
                             <div class="swiper swiper6">
                                 <div class="swiper-wrapper">
@@ -374,7 +373,7 @@
                 <!-- Modal 7 -->
                 <div id="modal7" class="modal">
                     <div class="modal-content">
-                        <span class="close-modal" onclick="closeModal('modal7'); return false;">&times;</span>
+                        <span class="close-modal" onclick="closeModal('modal7'); return false;">×</span>
                         <div class="modal-body">
                             <div class="swiper swiper7">
                                 <div class="swiper-wrapper">
@@ -423,7 +422,7 @@
                 <!-- Modal 8 -->
                 <div id="modal8" class="modal">
                     <div class="modal-content">
-                        <span class="close-modal" onclick="closeModal('modal8'); return false;">&times;</span>
+                        <span class="close-modal" onclick="closeModal('modal8'); return false;">×</span>
                         <div class="modal-body">
                             <div class="swiper swiper8">
                                 <div class="swiper-wrapper">
@@ -636,91 +635,11 @@
         <!-- Footer end. -->
         </footer>
 
-        <script src="/js/index.js"></script>
-        <button id="backToTop" title="Voltar ao topo">
+        <button id="backToTop" title="Voltar ao topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <i class="fa fa-arrow-up"></i>
         </button>
-        <!-- Adicionar Swiper JS -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script>
-            // Função para carregar imagens
-            function loadImages() {
-                const images = document.querySelectorAll('.service-image-container img');
-                images.forEach(img => {
-                    if (img.complete) {
-                        img.classList.add('loaded');
-                    } else {
-                        img.addEventListener('load', function() {
-                            this.classList.add('loaded');
-                        });
-                    }
-                });
-            }
-
-            // Carregar imagens quando a página carregar
-            window.addEventListener('load', loadImages);
-
-            function openModal(modalId, event) {
-                if (event) {
-                    event.stopPropagation();
-                }
-                document.getElementById(modalId).style.display = "block";
-                document.body.style.overflow = "hidden";
-                
-                // Inicializar Swiper quando o modal for aberto
-                const swiperConfig = {
-                    loop: true,
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                };
-
-                switch(modalId) {
-                    case 'modal1':
-                        new Swiper('.swiper1', swiperConfig);
-                        break;
-                    case 'modal2':
-                        new Swiper('.swiper2', swiperConfig);
-                        break;
-                    case 'modal3':
-                        new Swiper('.swiper3', swiperConfig);
-                        break;
-                    case 'modal4':
-                        new Swiper('.swiper4', swiperConfig);
-                        break;
-                    case 'modal5':
-                        new Swiper('.swiper5', swiperConfig);
-                        break;
-                    case 'modal6':
-                        new Swiper('.swiper6', swiperConfig);
-                        break;
-                    case 'modal7':
-                        new Swiper('.swiper7', swiperConfig);
-                        break;
-                    case 'modal8':
-                        new Swiper('.swiper8', swiperConfig);
-                        break;
-                }
-            }
-
-            function closeModal(modalId) {
-                document.getElementById(modalId).style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-
-            // Fechar modal ao clicar fora dele
-            window.onclick = function(event) {
-                if (event.target.classList.contains('modal')) {
-                    event.target.style.display = "none";
-                    document.body.style.overflow = "auto";
-                }
-            }
-        </script>
+        <script src="/js/index.js"></script>
     </body>
 
 </html>
