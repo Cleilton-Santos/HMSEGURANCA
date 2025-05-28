@@ -1,3 +1,20 @@
+// Função para carregar imagens
+function loadImages() {
+    const images = document.querySelectorAll('.service-image-container img');
+    images.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', function() {
+                this.classList.add('loaded');
+            });
+        }
+    });
+}
+
+// Carregar imagens quando a página carregar
+window.addEventListener('load', loadImages);
+
 // Funções para os modais
 function openModal(modalId, event) {
     if (event) {
@@ -121,31 +138,19 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 // Mostrar/esconder o botão baseado no scroll
-window.onscroll = function() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("backToTop").style.display = "block";
+window.addEventListener('scroll', function() {
+    const backToTopButton = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
     } else {
-        document.getElementById("backToTop").style.display = "none";
+        backToTopButton.style.display = 'none';
     }
-};
+});
 
 // Função para voltar ao topo
-document.getElementById("backToTop").onclick = function() {
+document.getElementById('backToTop').addEventListener('click', function() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
-    });
-};
-
-// Melhorar carregamento das imagens
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('.service-image-container img');
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.classList.add('loaded');
-        });
-        if (img.complete) {
-            img.classList.add('loaded');
-        }
     });
 });
