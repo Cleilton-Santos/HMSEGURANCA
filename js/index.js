@@ -22,7 +22,8 @@ function openModal(modalId, event) {
         event.stopPropagation();
     }
     
-    document.getElementById(modalId).style.display = "block";
+    const modal = document.getElementById(modalId);
+    modal.style.display = "block";
     document.body.style.overflow = "hidden";
     
     // Inicializar Swiper quando o modal for aberto
@@ -36,33 +37,48 @@ function openModal(modalId, event) {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+        // Adicionar suporte para navegadores mais antigos
+        touchRatio: 1,
+        touchAngle: 45,
+        resistance: true,
+        resistanceRatio: 0.85,
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+        preventInteractionOnTransition: true
     };
 
-    switch(modalId) {
-        case 'modal1':
-            new Swiper('.swiper1', swiperConfig);
-            break;
-        case 'modal2':
-            new Swiper('.swiper2', swiperConfig);
-            break;
-        case 'modal3':
-            new Swiper('.swiper3', swiperConfig);
-            break;
-        case 'modal4':
-            new Swiper('.swiper4', swiperConfig);
-            break;
-        case 'modal5':
-            new Swiper('.swiper5', swiperConfig);
-            break;
-        case 'modal6':
-            new Swiper('.swiper6', swiperConfig);
-            break;
-        case 'modal7':
-            new Swiper('.swiper7', swiperConfig);
-            break;
-        case 'modal8':
-            new Swiper('.swiper8', swiperConfig);
-            break;
+    // Adicionar prefixos de vendor para o Swiper
+    if (typeof Swiper !== 'undefined') {
+        try {
+            switch(modalId) {
+                case 'modal1':
+                    new Swiper('.swiper1', swiperConfig);
+                    break;
+                case 'modal2':
+                    new Swiper('.swiper2', swiperConfig);
+                    break;
+                case 'modal3':
+                    new Swiper('.swiper3', swiperConfig);
+                    break;
+                case 'modal4':
+                    new Swiper('.swiper4', swiperConfig);
+                    break;
+                case 'modal5':
+                    new Swiper('.swiper5', swiperConfig);
+                    break;
+                case 'modal6':
+                    new Swiper('.swiper6', swiperConfig);
+                    break;
+                case 'modal7':
+                    new Swiper('.swiper7', swiperConfig);
+                    break;
+                case 'modal8':
+                    new Swiper('.swiper8', swiperConfig);
+                    break;
+            }
+        } catch (error) {
+            console.warn('Erro ao inicializar Swiper:', error);
+        }
     }
 }
 
@@ -84,7 +100,7 @@ window.onclick = function(event) {
     }
 }
 
-// Função para o menu mobile
+// Função para o menu mobile com suporte a prefixos
 function toggleFunction() {
     const menu = document.getElementById("navDemo");
     const isOpening = !menu.classList.contains("w3-show");
@@ -94,15 +110,17 @@ function toggleFunction() {
         menu.style.maxHeight = '0';
         menu.classList.add("w3-show");
 
-        // Força reflow
+        // Força reflow com prefixos
         void menu.offsetHeight;
+        void menu.getBoundingClientRect();
 
         menu.style.maxHeight = `${menu.scrollHeight}px`;
     } else {
         menu.style.maxHeight = `${menu.scrollHeight}px`;
 
-        // Força reflow
+        // Força reflow com prefixos
         void menu.offsetHeight;
+        void menu.getBoundingClientRect();
 
         menu.style.maxHeight = '0';
 
@@ -116,19 +134,37 @@ function toggleFunction() {
     }
 }
 
-// Scroll suave ao clicar em links de navegação
+// Scroll suave com suporte a prefixos
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
         const target = document.querySelector(targetId);
         if (target) {
             e.preventDefault();
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            
+            // Suporte para navegadores mais antigos
+            const scrollTo = target.offsetTop;
+            const currentScroll = window.pageYOffset;
+            const distance = scrollTo - currentScroll;
+            const duration = 1000;
+            let start = null;
 
-            // Fecha o menu mobile após clique, se estiver aberto
+            function animation(currentTime) {
+                if (start === null) start = currentTime;
+                const timeElapsed = currentTime - start;
+                const progress = Math.min(timeElapsed / duration, 1);
+                const easeInOutCubic = progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                
+                window.scrollTo(0, currentScroll + (distance * easeInOutCubic));
+                
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            requestAnimationFrame(animation);
+
+            // Fecha o menu mobile após clique
             const menu = document.getElementById("navDemo");
             if (menu.classList.contains("w3-show")) {
                 toggleFunction();
@@ -137,7 +173,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 });
 
-// Lazy Loading de Imagens
+// Lazy Loading de Imagens com suporte a prefixos
 document.addEventListener("DOMContentLoaded", function() {
     const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
@@ -154,6 +190,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     lazyImageObserver.unobserve(lazyImage);
                 }
             });
+        }, {
+            rootMargin: "50px 0px",
+            threshold: 0.01
         });
 
         lazyImages.forEach(function(lazyImage) {
@@ -162,7 +201,6 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         // Fallback para navegadores que não suportam IntersectionObserver
         let active = false;
-
         const lazyLoad = function() {
             if (active === false) {
                 active = true;
@@ -193,9 +231,17 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         };
 
+        // Adicionar listeners com suporte a prefixos
         document.addEventListener("scroll", lazyLoad);
         window.addEventListener("resize", lazyLoad);
         window.addEventListener("orientationchange", lazyLoad);
+        
+        // Suporte para navegadores mais antigos
+        if (window.attachEvent) {
+            window.attachEvent("onload", lazyLoad);
+        } else {
+            window.addEventListener("load", lazyLoad);
+        }
     }
 });
 

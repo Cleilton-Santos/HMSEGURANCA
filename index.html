@@ -536,9 +536,9 @@
                         <i class="fa fa-clock-o fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Segunda a Sexta: 8h às 18h<br>
                     </div>
                     <p>Solicite uma avaliação gratuita do seu projeto:</p>
-                    <form action="https://formsubmit.co/hmseguranca01se@gmail.com" method="POST">
+                    <form action="https://formsubmit.co/hmseguranca01se@gmail.com" method="POST" role="form" aria-label="Formulário de contato" novalidate>
                         <!-- Honeypot -->
-                        <input type="text" name="_honey" style="display:none">
+                        <input type="text" name="_honey" style="display:none" aria-hidden="true">
                         
                         <!-- Desabilita captcha -->
                         <input type="hidden" name="_captcha" value="false">
@@ -548,24 +548,107 @@
                         
                         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                             <div class="w3-half">
-                                <input class="w3-input w3-border" type="text" placeholder="Nome" required name="name">
+                                <label for="name" class="w3-label">Nome</label>
+                                <input 
+                                    class="w3-input w3-border" 
+                                    type="text" 
+                                    id="name"
+                                    placeholder="Nome" 
+                                    required 
+                                    name="name"
+                                    aria-required="true"
+                                    aria-invalid="false"
+                                    pattern="[A-Za-zÀ-ÿ\s]+"
+                                    minlength="3"
+                                    maxlength="50"
+                                    autocomplete="name"
+                                >
+                                <div class="error-message" aria-live="polite"></div>
                             </div>
                             <div class="w3-half">
-                                <input class="w3-input w3-border" type="tel" placeholder="Telefone" required name="phone">
+                                <label for="phone" class="w3-label">Telefone</label>
+                                <input 
+                                    class="w3-input w3-border" 
+                                    type="tel" 
+                                    id="phone"
+                                    placeholder="Telefone" 
+                                    required 
+                                    name="phone"
+                                    aria-required="true"
+                                    aria-invalid="false"
+                                    pattern="[0-9]{10,11}"
+                                    minlength="10"
+                                    maxlength="11"
+                                    autocomplete="tel"
+                                >
+                                <div class="error-message" aria-live="polite"></div>
                             </div>
                         </div>
                         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                             <div class="w3-half">
-                                <input class="w3-input w3-border" type="text" placeholder="Cidade" required name="city">
+                                <label for="city" class="w3-label">Cidade</label>
+                                <input 
+                                    class="w3-input w3-border" 
+                                    type="text" 
+                                    id="city"
+                                    placeholder="Cidade" 
+                                    required 
+                                    name="city"
+                                    aria-required="true"
+                                    aria-invalid="false"
+                                    pattern="[A-Za-zÀ-ÿ\s]+"
+                                    minlength="3"
+                                    maxlength="50"
+                                    autocomplete="address-level2"
+                                >
+                                <div class="error-message" aria-live="polite"></div>
                             </div>
                             <div class="w3-half">
-                                <input class="w3-input w3-border" type="text" placeholder="Tipo de Projeto" required name="project_type">
+                                <label for="project_type" class="w3-label">Tipo de Projeto</label>
+                                <select 
+                                    class="w3-input w3-border" 
+                                    id="project_type"
+                                    required 
+                                    name="project_type"
+                                    aria-required="true"
+                                    aria-invalid="false"
+                                >
+                                    <option value="">Selecione o tipo de projeto</option>
+                                    <option value="residencial">Residencial</option>
+                                    <option value="comercial">Comercial</option>
+                                    <option value="industrial">Industrial</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                                <div class="error-message" aria-live="polite"></div>
                             </div>
                         </div>
-                        <textarea class="w3-input w3-border" placeholder="Mensagem" required name="message" rows="4" style="width: 100%; height: 150px; resize: none;"></textarea>
-                        <button class="w3-button w3-black w3-right w3-section" type="submit">
-                            <i class="fa fa-paper-plane"></i> SOLICITAR AVALIAÇÃO
+                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                            <div class="w3-full">
+                                <label for="message" class="w3-label">Mensagem</label>
+                                <textarea 
+                                    class="w3-input w3-border" 
+                                    id="message"
+                                    placeholder="Mensagem" 
+                                    required 
+                                    name="message" 
+                                    rows="4" 
+                                    style="width: 100%; height: 150px; resize: none;"
+                                    aria-required="true"
+                                    aria-invalid="false"
+                                    minlength="10"
+                                    maxlength="500"
+                                ></textarea>
+                                <div class="error-message" aria-live="polite"></div>
+                            </div>
+                        </div>
+                        <button 
+                            class="w3-button w3-black w3-right w3-section" 
+                            type="submit"
+                            aria-label="Enviar formulário de contato"
+                        >
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i> SOLICITAR AVALIAÇÃO
                         </button>
+                        <div class="form-status" role="alert" aria-live="polite"></div>
                     </form>
                 </div>
             </div>
