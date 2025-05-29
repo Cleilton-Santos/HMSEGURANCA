@@ -395,6 +395,62 @@ footer a:hover {
     border-radius: 10px;
 }
 
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modal-text {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.modal-text h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-text ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-text li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #666;
+    width: 100%;
+}
+
+.modal-text li:last-child {
+    border-bottom: none;
+}
+
+/* Estilização da barra de rolagem */
+.modal-text::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-text::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-text::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.modal-text::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .close-modal {
     position: absolute;
     right: 15px;
@@ -418,12 +474,6 @@ footer a:hover {
     background: rgba(255, 255, 255, 1);
 }
 
-.modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .img-modal{
     cursor: pointer;
     width: 100%;
@@ -443,6 +493,7 @@ footer a:hover {
 
 .modal-text {
     padding: 20px;
+    justify-content: space-between;
 }
 
 .modal-text h3 {
@@ -451,21 +502,25 @@ footer a:hover {
 }
 
 .modal-text ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-between;
 }
 
-.modal-text li {
-    margin: 10px 0;
-    padding-left: 20px;
-    position: relative;
+@media screen and (max-width: 768px) {
+    .modal-text li {
+        flex: 0 0 calc(50% - 20px);
+    }
 }
 
-.modal-text li:before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #000;
+@media screen and (max-width: 480px) {
+    .modal-text li {
+        flex: 0 0 100%;
+    }
 }
 
 /* Estilos para a seção de clientes */
