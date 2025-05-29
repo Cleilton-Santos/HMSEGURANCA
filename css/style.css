@@ -328,6 +328,66 @@ footer a:hover {
         padding: 12px;
         font-size: 16px;
     }
+
+    /* Reduzir animações em dispositivos móveis */
+    * {
+        animation-duration: 0.3s !important;
+        transition-duration: 0.3s !important;
+    }
+
+    /* Otimizar renderização */
+    .service-card {
+        will-change: transform;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+
+    /* Reduzir sombras em dispositivos móveis */
+    .w3-card {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Otimizar fontes para dispositivos móveis */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Reduzir padding e margens */
+    .w3-padding-64 {
+        padding-top: 32px !important;
+        padding-bottom: 32px !important;
+    }
+
+    .w3-padding-32 {
+        padding-top: 16px !important;
+        padding-bottom: 16px !important;
+    }
+
+    /* Otimizar imagens */
+    .service-image-container img {
+        transform: scale(1);
+        transition: transform 0.3s ease;
+    }
+
+    /* Reduzir tamanho de ícones */
+    .w3-jumbo {
+        font-size: 48px !important;
+    }
+
+    /* Otimizar formulários */
+    .w3-input {
+        font-size: 16px;
+        padding: 12px;
+        -webkit-appearance: none;
+        border-radius: 4px;
+    }
+
+    /* Melhorar performance de scroll */
+    .w3-display-container {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -627,4 +687,33 @@ footer a:hover {
 
 .service-card {
     animation: fadeIn 0.5s ease-in;
+}
+
+/* Otimizações de performance gerais */
+.service-card {
+    contain: content;
+}
+
+.modal {
+    contain: strict;
+}
+
+/* Otimizar animações */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Otimizar carregamento de imagens */
+.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.lazy.loaded {
+    opacity: 1;
 }

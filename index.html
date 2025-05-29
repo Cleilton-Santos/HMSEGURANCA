@@ -8,13 +8,37 @@
         <meta name="keywords" content="segurança eletrônica, CFTV, alarmes, automação residencial, monitoramento 24h, Aracaju, Sergipe">
         <meta name="author" content="HM Segurança">
         <meta name="robots" content="index, follow">
-        <meta property="og:title" content="HM Segurança | CFTV e Alarmes Inteligentes em Sergipe">
-        <meta property="og:description" content="Soluções completas de segurança eletrônica com projetos personalizados. CFTV inteligente, alarmes smart e automação residencial.">
-        <meta property="og:image" content="img/WhatsApp Image 2025-04-15 at 10.39.10-2.jpeg">
-        <meta property="og:url" content="https://hmseguranca.com.br">
+        
+        <!-- Preload de recursos críticos -->
+        <link rel="preload" href="https://www.w3schools.com/w3css/4/w3.css" as="style">
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato" as="style">
+        <link rel="preload" href="img/WhatsApp Image 2025-04-15 at 10.39.10-2.jpeg" as="image">
+        
+        <!-- CSS crítico inline -->
+        <style>
+            /* Estilos críticos para primeiro carregamento */
+            body { margin: 0; padding: 0; }
+            .w3-top { position: fixed; width: 100%; z-index: 2; }
+            .w3-bar { background-color: #fff; }
+            .w3-bar-item img { height: 50px; padding: 8px; }
+        </style>
+        
+        <!-- CSS não crítico carregado de forma assíncrona -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+        
+        <!-- Fallback para navegadores que não suportam onload -->
+        <noscript>
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="/css/style.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        </noscript>
         <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -86,7 +110,16 @@
                 <!-- Monitoramento e CFTV -->
                 <div class="service-card" onclick="openModal('modal1', event)">
                     <div class="service-image-container">
-                        <img src="img/CFTV Residencial.jpeg" alt="CFTV Residencial">
+                        <img 
+                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                            data-src="img/CFTV Residencial.jpeg"
+                            data-srcset="img/CFTV Residencial-small.jpeg 300w,
+                                         img/CFTV Residencial.jpeg 600w"
+                            sizes="(max-width: 600px) 300px, 600px"
+                            alt="CFTV Residencial"
+                            loading="lazy"
+                            class="lazy"
+                        >
                     </div>
                     <div class="service-content">
                         <h4>CFTV</h4>
