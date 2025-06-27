@@ -13,16 +13,7 @@
         <link rel="preload" href="https://www.w3schools.com/w3css/4/w3.css" as="style">
         <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato" as="style">
         <link rel="preload" href="img/WhatsApp Image 2025-04-15 at 10.39.10-2.jpeg" as="image">
-        
-        <!-- CSS crítico inline -->
-        <style>
-            /* Estilos críticos para primeiro carregamento */
-            body { margin: 0; padding: 0; }
-            .w3-top { position: fixed; width: 100%; z-index: 2; }
-            .w3-bar { background-color: #fff; }
-            .w3-bar-item img { height: 50px; padding: 8px; }
-        </style>
-        
+                
         <!-- CSS não crítico carregado de forma assíncrona -->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" media="print" onload="this.media='all'">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" media="print" onload="this.media='all'">
@@ -51,7 +42,7 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <a href="#home" class="w3-bar-item" style="padding: 0;">
-                    <img src="img/WhatsApp Image 2025-04-15 at 10.39.10-2.jpeg" alt="Logo HM Segurança" style="height: 50px; padding: 8px;">
+                    <img src="img/logoHM.jpeg" alt="Logo HM Segurança" style="height: 50px; padding: 8px;">
                 </a>
                 <a href="#about" class="w3-bar-item w3-button w3-hide-small">
                     <i class="fa fa-user"></i> QUEM SOMOS
@@ -135,13 +126,13 @@
                             <div class="swiper swiper1">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <img src="img/WhatsApp Image 2025-04-29 at 09.37.58 (1).jpeg" alt="CFTV Residencial">
+                                        <img src="img/cftv1.jpeg" alt="CFTV Residencial">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="img/WhatsApp Image 2025-04-29 at 09.38.27 (1).jpeg" alt="CFTV Residencial 2">
+                                        <img src="img/cftv2.jpeg" alt="CFTV Residencial 2">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="img/WhatsApp Image 2025-04-29 at 09.38.26.jpeg" alt="CFTV Residencial 3">
+                                        <img src="img/cftv3.jpeg" alt="CFTV Residencial 3">
                                     </div>
                                 </div>
                                 <div class="swiper-pagination"></div>
@@ -362,11 +353,8 @@
                 </div>
 
                 <div class="service-card" onclick="openModal('modal8', event)">
-                    <div class="service-image-container" style="aspect-ratio: 16/9; overflow: hidden;">
-                        <video controls style="width: 100%; height: 100%; object-fit: cover;">
-                            <source src="img/WhatsApp Video 2025-04-29 at 09.38.26.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeos.
-                        </video>
+                    <div class="service-image-container">
+                        <img src="img/hmbackground.jpg" alt="Nossa Empresa">
                     </div>
                     <div class="service-content">
                         <h4>Conheça Nossa Empresa</h4>
@@ -382,16 +370,16 @@
                             <div class="swiper swiper8">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <video controls style="width: 100%; height: auto; max-height: 70vh;">
-                                            <source src="img/WhatsApp Video 2025-04-29 at 09.38.26.mp4" type="video/mp4">
-                                            Seu navegador não suporta vídeos.
-                                        </video>
+                                        <img src="img/hmbackground.jpg" alt="Nossa Empresa">
                                     </div>
                                     <div class="swiper-slide">
                                         <img src="img/WhatsApp Image 2025-04-29 at 09.37.58 (1).jpeg" alt="Nossa Empresa">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="img/WhatsApp Image 2025-04-29 at 09.38.26.jpeg" alt="Nossa Empresa 2">
+                                        <video controls style="width: 100%; height: auto; max-height: 70vh;">
+                                            <source src="img/WhatsApp Video 2025-04-29 at 09.38.26.mp4" type="video/mp4">
+                                            Seu navegador não suporta vídeos.
+                                        </video>
                                     </div>
                                 </div>
                                 <div class="swiper-pagination"></div>
